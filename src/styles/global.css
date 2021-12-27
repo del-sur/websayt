@@ -1,0 +1,44 @@
+@import url("https://use.typekit.net/mrn6hjb.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	body {
+		@apply leading-tight bg-zinc-800 text-white;
+		font-family: "proxima-nova";
+	}
+
+	header,
+	section {
+		@apply py-2;
+	}
+
+	li {
+		@apply py-1;
+	}
+
+	h1,
+	h2 {
+		@apply font-bold leading-tight pb-2 text-orange-400;
+	}
+
+	h1 {
+		@apply text-2xl;
+	}
+
+	footer a {
+		@apply text-white;
+	}
+
+	a {
+		@apply text-violet-400;
+		font-weight: 500;
+	}
+
+	a:hover {
+		@apply underline;
+
+	}
+}

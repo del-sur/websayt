@@ -1,0 +1,17 @@
+{
+  "extends": "@tsconfig/svelte/tsconfig.json",
+  "include": ["src/**/*", "global.d.ts"],
+  "exclude": ["node_modules/*", "public/*"],
+    "compilerOptions": {
+    "module": "esnext",
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": ["src/components/*"],
+      "@pages/*": ["src/pages/*"],
+      "@css/*": ["src/css/*"],
+      "@layouts/*": ["src/layouts/*"],
+      "@lib/*": ["src/lib/*"],
+      "@store/*": ["src/store/*"]
+    }
+  }
+}

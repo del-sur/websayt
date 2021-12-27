@@ -1,0 +1,40 @@
+---
+import Meta from './Meta.astro'
+
+const {
+  description: descriptionP,
+  image: imageP,
+  keywords: keywordsP,
+  title: titleP,
+  type: typeP,
+  url: urlP,
+  bodyClass,
+} = Astro.props
+const isProd = import.meta.env.PROD
+---
+
+<html lang="en">
+  <head>
+    <title>
+      {titleP}
+    </title>
+
+    <link
+      rel="stylesheet"
+      href={Astro.resolve("../styles/global.css")}
+    >
+
+    <Meta
+      description={descriptionP}
+      image={imageP}
+      keywords={keywordsP}
+      title={titleP}
+      type={typeP}
+      url={urlP}
+    />
+  </head>
+  
+  <body class={bodyClass}>
+		<slot />
+  </body>
+</html>

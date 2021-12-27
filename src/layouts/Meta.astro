@@ -1,0 +1,25 @@
+---
+const {
+  description: descriptionP,
+  title: titleP,
+  type: typeP,
+  url: urlP,
+} = Astro.props
+
+const title = titleP || 'Del Sur Software Development Services'
+const description = descriptionP || 'Become a significant leading force in tech enablement and empowerment for businesses in Mindanao.'
+const url = urlP || 'https://delsur.io' 
+const type = typeP || 'Website'
+---
+
+<meta charset="utf-8" />
+<!-- Enable responsive layout -->
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<!-- SEO -->
+<meta property="title" content={title} />
+<meta property="description" content={description} />
+<!-- Open Graph -->
+<meta property="og:url" content={url} />
+<meta property="og:type" content={type} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
