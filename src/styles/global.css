@@ -39,6 +39,9 @@
 
 	a:hover {
 		@apply underline;
+	}
 
+	p {
+		@apply mb-0.5;
 	}
 }
