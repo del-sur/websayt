@@ -1,0 +1,54 @@
+---
+import Base from '@layouts/Base.astro'
+import Screenshots from '@components/Screenshots.svelte'
+
+const screenshots = [
+  {
+    key: 'corridas1_qlqlzq',
+    alt: 'Homepage of corridas.ph',
+  },
+  {
+    key: 'corridas4_vixmjj',
+    alt: 'Product details screen',
+  },
+  {
+    key: 'corridas2_ajf1tu',
+    alt: 'Inventory screen',
+  },
+  {
+    key: 'corridas3_svar3l',
+    alt: 'Orders screen',
+  },
+]
+---
+
+<Base title="Work - corridas.ph" bodyClass="max-w-screen-md mx-auto">
+  <header class="text-center p-4">
+    <h1>
+      corridas.ph&nbsp;
+      <a href="https://corridas.ph" target="_blank"><svg class="inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M5 22a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v3h-2V4H6v16h12v-2h2v3a1 1 0 0 1-1 1H5zm13-6v-3h-7v-2h7V8l5 4-5 4z" fill="currentColor"/></svg></a>
+    </h1>
+    <p class="mb-2">Online shop and management app</p>
+  </header>
+
+  <main class="grid grid-cols-2 md:grid-cols-3 gap-4 p-4">
+    <section class="col-span-full">
+      <h2>Overview</h2>
+      <p>The company has been running their ornamental plant retail and distribution business through Facebook, Viber, and Whatsapp. As they grew, it was getting more and more difficult to keep track of inventory, orders, and customers. Seeing the need to get more organized and a growing online market, they decided to invest in a stand-alone online shop and complementary management app tailor-made to their specific business needs and practices.</p>
+    </section>
+
+    <section class="col-span-full">
+      <h2>Implementation details</h2>
+      <p>The backend of this project is based on a <a href="https://docs.microsoft.com/en-us/azure/architecture/patterns/cqrs" target="_bank">CQRS pattern</a>. There is one model and data store for commands (writing data) and another for queries (getting data). All business interactions (e.g. place an order, create an account, add a customer, etc.) have equivalent commands which emit events that are stored in an append-only table (the command store). Events are streamed to another more traditional update-in-place table (the query store). The command store answers the question: What happened? The query store answers the question: What is the current state? Besides being easier to debug, rollback, and replay, it is by design more secure. Bad actors, if any can be found easily since all events are logged and each update to the query store has a reference to an event in the command store.</p>
+      <p>The infrastucture (data stores, authorization, streams) and API for the above pattern was constructed using <a href="https://docs.aws.amazon.com/cdk/api/v2/docs/aws-construct-library.html" target="_blank">aws-cdk</a> and <a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/" target="_blank">aws-sdk.</a> The API is a per field permission-based GraphQL setup.</p>
+      <p>The online shop uses a passwordless authentication system based on customer phone numbers. An SMS with a one-time password is sent to a customer who is logging in.</p>
+      <p>A separate web app was made for managing inventory, products, customers, and orders. Before this, managing the business meant reading through, updating, and maintaining numerous spreadsheets. The management app centralizes all business data, and is geared towards clarity and speed, so those working at corridas.ph can make the right decision at the right time.
+      <p>All frontends use <a href="https://svelte.dev" target="_blank">Svelte</a>. The online shop was built using <a href="https://astro.build/" target="_blank">Astro</a>. It is a statically generated site. The management app is a single-page application built using <a href="https://www.routify.dev" target="_blank">Routify</a>. Data is stored in <a href="https://aws.amazon.com/dynamodb" target="_blank">DynamoDB</a>.
+    </section> 
+
+    <section class="col-span-full">
+      <h2>Screenshots</h2>
+      <Screenshots images={screenshots}/>
+    </section> 
+  </main>
+</Base>

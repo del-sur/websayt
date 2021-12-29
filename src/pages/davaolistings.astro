@@ -1,0 +1,48 @@
+---
+import Base from '@layouts/Base.astro'
+import Screenshots from '@components/Screenshots.svelte'
+
+const screenshots = [
+  {
+    key: 'davaolistings1_pi6fvi',
+    alt: 'Homepage of davaolistings.com',
+  },
+  {
+    key: 'davaolistings2_maa8nv',
+    alt: 'davaolistings.com CMS',
+    orientation: 'portrait',
+  },
+  {
+    key: 'davaolistings3_r2uia7',
+    alt: 'Editing a listing on davaolistings.com CMS',
+    orientation: 'portrait',
+  },
+]
+---
+
+<Base title="Work - davaolistings.com" bodyClass="max-w-screen-md mx-auto">
+  <header class="text-center p-4">
+    <h1>
+      davaolistings.com&nbsp;
+      <a href="https://davaolistings.com" target="_blank"><svg class="inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M5 22a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v3h-2V4H6v16h12v-2h2v3a1 1 0 0 1-1 1H5zm13-6v-3h-7v-2h7V8l5 4-5 4z" fill="currentColor"/></svg></a>
+    </h1>
+    <p class="mb-2">Real estate listings web app and content management system</p>
+  </header>
+
+  <main class="grid grid-cols-2 md:grid-cols-3 gap-4 p-4">
+    <section class="col-span-full">
+      <h2>Overview</h2>
+      <p>Commissioned by a pair of real estate agents wanting a more digital workflow. The project consisted of 2 apps: a responsive public website for listings and a content management system.</p>
+    </section>
+
+    <section class="col-span-full">
+      <h2>Implementation details</h2>
+      <p>All frontends use <a href="https://svelte.dev" target="_blank">Svelte</a>. The listings site was built using <a href="https://sapper.svelte.dev/" target="_blank">Sapper</a>. It is a statically generated site. The CMS is a single-page application built using <a href="https://www.routify.dev" target="_blank">Routify</a>. Data is stored in <a href="https://aws.amazon.com/dynamodb" target="_blank">DynamoDB</a>. CRUD operations in the CMS use <a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/index.html" target="_blank">AWS SDK V3</a> to interface with the database.</p>
+    </section> 
+
+    <section class="col-span-full">
+      <h2>Screenshots</h2>
+      <Screenshots images={screenshots}/>
+    </section> 
+  </main>
+</Base>
