@@ -1,5 +1,9 @@
 ---
 import Meta from './Meta.astro'
+import GtmHeadDev from './GtmHeadDev.astro'
+import GtmBodyDev from './GtmBodyDev.astro'
+import GtmHeadProd from './GtmHeadProd.astro'
+import GtmBodyProd from './GtmBodyProd.astro'
 
 const {
   description: descriptionP,
@@ -32,6 +36,8 @@ const isProd = import.meta.env.PROD
       type={typeP}
       url={urlP}
     />
+
+    {isProd ? (<GtmHeadProd />) : (<GtmHeadDev />)}
   </head>
   
   <body class={bodyClass}>
