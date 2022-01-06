@@ -1,5 +1,6 @@
 ---
 import Base from '@layouts/Base.astro'
+import Years from '@components/Years.svelte'
 ---
 
 <Base title="Profiles - Boji Bote" bodyClass="max-w-screen-md mx-auto">
@@ -17,25 +18,25 @@ import Base from '@layouts/Base.astro'
       class="col-span-full grid grid-cols-4 md:grid-cols-8 gap-4"
     >
       <div class="col-span-2">
-        <div class="text-3xl font-bold">10 years</div>
+        <Years start={2006} end={2016} client:load />
         <div>Graphic designer and illustrator</div>
         <div><small class="text-zinc-500">2006&ndash;2016</small></div>
       </div>
 
       <div class="col-span-2">
-        <div class="text-3xl font-bold">10 years</div>
+        <Years start={2011} client:load />
         <div>UI, UX, and interaction designer</div>
         <div><small class="text-zinc-500">20011&ndash;present</small></div>
       </div>
 
       <div class="col-span-2">
-        <div class="text-3xl font-bold">8 years</div>
+        <Years start={2013} client:load />
         <div>Frontend software engineer</div>
         <div><small class="text-zinc-500">2013&ndash;present</small></div>
       </div>
 
       <div class="col-span-2">
-        <div class="text-3xl font-bold">4 years</div>
+        <Years start={2017} client:load />
         <div>Fullstack software engineer</div>
         <div><small class="text-zinc-500">2017&ndash;present</small></div>
       </div>
