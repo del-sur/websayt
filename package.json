@@ -9,7 +9,7 @@
     "preview": "astro preview"
   },
   "devDependencies": {
-    "@astrojs/renderer-svelte": "^0.3.0",
+    "@astrojs/renderer-svelte": "^0.5.0",
     "@tsconfig/svelte": "^3.0.0",
     "@types/luxon": "^2.0.8",
     "astro": "^0.22.3",
